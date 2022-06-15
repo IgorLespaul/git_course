@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- aaaa -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta value="description" content="Клуб любителей кошек" />
+    <meta
+      value="keywords"
+      content="кошки, питомец, клуб, домашние, животные, кошка, линька, кот, хобби, стерилизация, кастрация"
+    />
+    <title>Club_Kats</title>
+
+    <link rel="stylesheet" href="Calculator.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="displ" class="display"></div>
+
+      <div class="buttonBlock">
+        <button class="button" value="%" onclick="displayPercent()">%</button>
+        <button class="button" value="CE" onclick="clearCurrent()">CE</button>
+        <button class="button" value="C" onclick="clearAll()">C</button>
+        <button class="button" value="DEL" onclick="backSpace()">DEL</button>
+        <button class="buttonGray" value="7" onclick="inputNumbers(value)">
+          7
+        </button>
+        <button class="buttonGray" value="8" onclick="inputNumbers(value)">
+          8
+        </button>
+        <button class="buttonGray" value="9" onclick="inputNumbers(value)">
+          9
+        </button>
+        <button class="button" value="/" onclick="divide(value)">/</button>
+        <button class="buttonGray" value="4" onclick="inputNumbers(value)">
+          4
+        </button>
+        <button class="buttonGray" value="5" onclick="inputNumbers(value)">
+          5
+        </button>
+        <button class="buttonGray" value="6" onclick="inputNumbers(value)">
+          6
+        </button>
+        <button class="button" value="*" onclick="multiply(value)">*</button>
+        <button class="buttonGray" value="1" onclick="inputNumbers(value)">
+          1
+        </button>
+        <button class="buttonGray" value="2" onclick="inputNumbers(value)">
+          2
+        </button>
+        <button class="buttonGray" value="3" onclick="inputNumbers(value)">
+          3
+        </button>
+        <button class="button" value="-" onclick="minus()">-</button>
+        <button class="button" value="=" onclick="equals(value)">=</button>
+        <button class="buttonGray" value="0" onclick="inputNumbers(value)">
+          0
+        </button>
+        <button class="button" value="." onclick="inputNumbers(value)">
+          ,
+        </button>
+        <button class="button" value="+" onclick="plus()">+</button>
+      </div>
+    </div>
+    <script src="Calculator.js"></script>
+  </body>
+</html>
