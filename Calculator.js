@@ -10,7 +10,7 @@ displayArrString([0]);
 // *******************************************************************
 function backSpace() {
   if (arrCurrentString.length) {
-    if (arrCurrentString.pop() == ".") {
+    if (arrCurrentString.pop() === ".") {
       arrCurrentString.pop();
       decimalCounter = 0;
     }
@@ -78,18 +78,18 @@ function displayPercent() {
 // ********************************************************************
 
 function inputNumbers(value) {
-  if (typeOperation == "-") {
+  if (typeOperation === "-") {
     arrCurrentString[0] = "-";
   }
 
-  if (value == ".") {
+  if (value === ".") {
     decimalCounter++;
 
-    if (arrCurrentString.length == 0) {
+    if (arrCurrentString.length === 0) {
       arrCurrentString.push("0");
     }
 
-    if (arrCurrentString[0] == "-" && arrCurrentString.length == 1) {
+    if (arrCurrentString[0] === "-" && arrCurrentString.length === 1) {
       arrCurrentString.push("0");
     }
   }
@@ -104,7 +104,7 @@ function inputNumbers(value) {
     currentNumber = Number(arrCurrentString.join(""));
     console.log("currentNumber =", currentNumber);
 
-    if (typeOperation == "=") {
+    if (typeOperation === "=") {
       result = currentNumber;
     }
   }
@@ -138,7 +138,7 @@ function plus() {
       break;
     }
     case "/": {
-      if (currentNumber == 0) {
+      if (currentNumber === 0) {
         document.getElementById("displ").innerHTML = "error";
         result = 0;
         currentNumber = 0;
@@ -178,7 +178,7 @@ function minus() {
       break;
     }
     case "/": {
-      if (currentNumber == 0) {
+      if (currentNumber === 0) {
         document.getElementById("displ").innerHTML = "error";
         result = 0;
         currentNumber = 0;
@@ -218,7 +218,7 @@ function multiply() {
       break;
     }
     case "/": {
-      if (currentNumber == 0) {
+      if (currentNumber === 0) {
         document.getElementById("displ").innerHTML = "error";
         result = 0;
         currentNumber = 0;
@@ -258,7 +258,7 @@ function divide() {
       break;
     }
     case "/": {
-      if (currentNumber == 0) {
+      if (currentNumber === 0) {
         document.getElementById("displ").innerHTML = "error";
         result = 0;
         currentNumber = 0;
@@ -300,7 +300,7 @@ function equals() {
     }
 
     case "/": {
-      if (currentNumber == 0) {
+      if (currentNumber === 0) {
         document.getElementById("displ").innerHTML = "error";
         result = 0;
         currentNumber = 0;
