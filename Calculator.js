@@ -3,11 +3,14 @@ let currentNumber = 0;
 let result = 0;
 let decimalCounter = 0;
 let typeOperation = "+";
-// let keyFirstTypeOperation = 0;
+const $display = document.getElementById("displ")
 
 displayArrString([0]);
 
-// *******************************************************************
+function toDisplay(value) {
+  $display.innerHTML = value
+}
+
 function backSpace() {
   if (arrCurrentString.length) {
     if (arrCurrentString.pop() === ".") {
@@ -17,53 +20,49 @@ function backSpace() {
     displayArrString(arrCurrentString);
     if (!arrCurrentString.length) displayArrString([0]);
     currentNumber = Number(arrCurrentString.join(""));
-    console.log("currentNumber =", currentNumber);
   }
 }
 function clearCurrent() {
   currentNumber = 0;
-  document.getElementById("displ").innerHTML = "0";
+  toDisplay("0");
   arrCurrentString.splice(0);
 }
+
 function clearAll() {
   result = 0;
   currentNumber = 0;
   typeOperation = "+";
-  document.getElementById("displ").innerHTML = "0";
-  console.log("currentNumber=", currentNumber, "     Result=", result);
+  toDisplay("0");
   arrCurrentString.splice(0);
   decimalCounter = 0;
 }
+
 function displayPercent() {
   switch (typeOperation) {
     case "+": {
       result = result + (result * currentNumber) / 100;
       let k = result.toFixed(15).split("").splice(0, 16).join("");
-      document.getElementById("displ").innerHTML = parseFloat(k);
-      console.log("percentSummValue=", result);
+      toDisplay(parseFloat(k));
       break;
     }
     case "-": {
       result = result + (result * currentNumber) / 100;
       let k = result.toFixed(15).split("").splice(0, 16).join("");
-      document.getElementById("displ").innerHTML = parseFloat(k);
-      console.log("percentMinusValue=", result);
+      toDisplay(parseFloat(k));
       break;
     }
     case "/": {
       if (currentNumber === 0) break;
       result = (result / currentNumber) * 100;
       let k = result.toFixed(15).split("").splice(0, 16).join("");
-      document.getElementById("displ").innerHTML = parseFloat(k);
-      console.log("percentDivideValue=", result);
+      toDisplay(parseFloat(k));
       break;
     }
     case "*": {
       // if (currentNumber === 0) break;
       result = (result * currentNumber) / 100;
       let k = result.toFixed(15).split("").splice(0, 16).join("");
-      document.getElementById("displ").innerHTML = parseFloat(k);
-      console.log("percentMultiplyValue=", result);
+      toDisplay(parseFloat(k));
       break;
     }
     case "=": {
@@ -71,11 +70,9 @@ function displayPercent() {
     }
   }
   typeOperation = "=";
-  console.log("result=", result);
   arrCurrentString.splice(0);
   currentNumber = 0;
 }
-// ********************************************************************
 
 function inputNumbers(value) {
   if (typeOperation === "-") {
@@ -102,7 +99,6 @@ function inputNumbers(value) {
       decimalCounter = 1;
     }
     currentNumber = Number(arrCurrentString.join(""));
-    console.log("currentNumber =", currentNumber);
 
     if (typeOperation === "=") {
       result = currentNumber;
@@ -112,18 +108,15 @@ function inputNumbers(value) {
   displayArrString(arrCurrentString);
 }
 
-// ********************************************************************
 function displayArrString(arrCurrentString) {
   let n = arrCurrentString.join("");
-  document.getElementById("displ").innerHTML = n;
+  toDisplay(n);
 }
-// ********************************************************************
 
 function displayResult(result) {
   let m = result.toFixed(15).split("").splice(0, 16).join("");
-  document.getElementById("displ").innerHTML = parseFloat(m);
+  toDisplay(parseFloat(m));
 }
-// ********************************************************************
 
 function plus() {
   decimalCounter = 0;
@@ -139,7 +132,7 @@ function plus() {
     }
     case "/": {
       if (currentNumber === 0) {
-        document.getElementById("displ").innerHTML = "error";
+        toDisplay("error");
         result = 0;
         currentNumber = 0;
         arrCurrentString.splice(0);
@@ -150,7 +143,6 @@ function plus() {
       break;
     }
     case "*": {
-      // if (currentNumber === 0) break;
       result = result * currentNumber;
       break;
     }
@@ -160,7 +152,6 @@ function plus() {
   }
   displayResult(result);
   typeOperation = "+";
-  console.log("result=", result, "Currentnumber=", currentNumber);
   arrCurrentString.splice(0);
   currentNumber = 0;
 }
@@ -179,7 +170,7 @@ function minus() {
     }
     case "/": {
       if (currentNumber === 0) {
-        document.getElementById("displ").innerHTML = "error";
+        toDisplay("error");
         result = 0;
         currentNumber = 0;
         arrCurrentString.splice(0);
@@ -190,7 +181,6 @@ function minus() {
       break;
     }
     case "*": {
-      // if (currentNumber === 0) break;
       result = result * currentNumber;
       break;
     }
@@ -200,7 +190,6 @@ function minus() {
   }
   displayResult(result);
   typeOperation = "-";
-  console.log("result=", result, "Currentnumber=", currentNumber);
   arrCurrentString.splice(0);
   currentNumber = 0;
 }
@@ -219,7 +208,7 @@ function multiply() {
     }
     case "/": {
       if (currentNumber === 0) {
-        document.getElementById("displ").innerHTML = "error";
+        toDisplay("error");
         result = 0;
         currentNumber = 0;
         arrCurrentString.splice(0);
@@ -230,7 +219,6 @@ function multiply() {
       break;
     }
     case "*": {
-      // if (currentNumber === 0) break;
       result = result * currentNumber;
       break;
     }
@@ -259,7 +247,7 @@ function divide() {
     }
     case "/": {
       if (currentNumber === 0) {
-        document.getElementById("displ").innerHTML = "error";
+        toDisplay("error");
         result = 0;
         currentNumber = 0;
         arrCurrentString.splice(0);
@@ -270,7 +258,6 @@ function divide() {
       break;
     }
     case "*": {
-      // if (currentNumber === 0) break;
       result = result * currentNumber;
       break;
     }
@@ -280,7 +267,6 @@ function divide() {
   }
   displayResult(result);
   typeOperation = "/";
-  console.log("result=", result, "Currentnumber=", currentNumber);
   arrCurrentString.splice(0);
   currentNumber = 0;
 }
@@ -301,7 +287,7 @@ function equals() {
 
     case "/": {
       if (currentNumber === 0) {
-        document.getElementById("displ").innerHTML = "error";
+        toDisplay("error");
         result = 0;
         currentNumber = 0;
         arrCurrentString.splice(0);
@@ -313,7 +299,6 @@ function equals() {
     }
 
     case "*": {
-      // if (currentNumber === 0) break;
       result = result * currentNumber;
       break;
     }
@@ -322,8 +307,4 @@ function equals() {
   displayResult(result);
   typeOperation = "=";
   arrCurrentString.splice(0);
-  // currentNumber = 0;
-  // currentNumber = result;
-  // result = 0;
-  console.log("result=", result, "Currentnumber=", currentNumber);
 }
