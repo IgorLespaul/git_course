@@ -3,8 +3,6 @@ let currentNumber = 0;
 let result = 0;
 let decimalCounter = 0;
 let typeOperation = "+";
-const $display = document.getElementById("displ")
-
 displayArrString([0]);
 
 function toDisplay(value) {
