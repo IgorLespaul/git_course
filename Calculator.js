@@ -3,19 +3,14 @@ let currentNumber = 0;
 let result = 0;
 let decimalCounter = 0;
 let typeOperation = "+";
-const $display = document.getElementById("displ")
-
 displayArrString([0]);
 
-function toDisplay(value) {
-  $display.innerHTML = prepareToDisplay(value)
-}
+const toDisplay = (value) => {
+  document.getElementById("displ").innerHTML = prepareToDisplay(value);
+};
 
 function prepareToDisplay(value) {
-  return value.toFixed(15)
-      .split("")
-      .splice(0, 16)
-      .join("")
+  return value.toFixed(15).split("").splice(0, 16).join("");
 }
 
 function backSpace() {
@@ -31,7 +26,7 @@ function backSpace() {
 }
 function clearCurrent() {
   currentNumber = 0;
-  toDisplay("0");
+  // toDisplay("0");
   arrCurrentString.splice(0);
 }
 
@@ -39,7 +34,7 @@ function clearAll() {
   result = 0;
   currentNumber = 0;
   typeOperation = "+";
-  toDisplay("0");
+  // toDisplay("0");
   arrCurrentString.splice(0);
   decimalCounter = 0;
 }
@@ -112,7 +107,7 @@ function inputNumbers(value) {
 
 function displayArrString(arrCurrentString) {
   let n = arrCurrentString.join("");
-  toDisplay(n);
+  // toDisplay(n);
 }
 
 function displayResult(result) {
@@ -133,7 +128,7 @@ function plus() {
     }
     case "/": {
       if (currentNumber === 0) {
-        toDisplay("error");
+        // toDisplay("error");
         result = 0;
         currentNumber = 0;
         arrCurrentString.splice(0);
@@ -171,7 +166,7 @@ function minus() {
     }
     case "/": {
       if (currentNumber === 0) {
-        toDisplay("error");
+        // toDisplay("error");
         result = 0;
         currentNumber = 0;
         arrCurrentString.splice(0);
@@ -209,7 +204,7 @@ function multiply() {
     }
     case "/": {
       if (currentNumber === 0) {
-        toDisplay("error");
+        // toDisplay("error");
         result = 0;
         currentNumber = 0;
         arrCurrentString.splice(0);
@@ -248,7 +243,7 @@ function divide() {
     }
     case "/": {
       if (currentNumber === 0) {
-        toDisplay("error");
+        // toDisplay("error");
         result = 0;
         currentNumber = 0;
         arrCurrentString.splice(0);
@@ -288,7 +283,7 @@ function equals() {
 
     case "/": {
       if (currentNumber === 0) {
-        toDisplay("error");
+        // toDisplay("error");
         result = 0;
         currentNumber = 0;
         arrCurrentString.splice(0);
