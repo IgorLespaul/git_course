@@ -8,7 +8,14 @@ const $display = document.getElementById("displ")
 displayArrString([0]);
 
 function toDisplay(value) {
-  $display.innerHTML = value
+  $display.innerHTML = prepareToDisplay(value)
+}
+
+function prepareToDisplay(value) {
+  return value.toFixed(15)
+      .split("")
+      .splice(0, 16)
+      .join("")
 }
 
 function backSpace() {
@@ -41,28 +48,23 @@ function displayPercent() {
   switch (typeOperation) {
     case "+": {
       result = result + (result * currentNumber) / 100;
-      let k = result.toFixed(15).split("").splice(0, 16).join("");
-      toDisplay(parseFloat(k));
+      toDisplay(result);
       break;
     }
     case "-": {
       result = result + (result * currentNumber) / 100;
-      let k = result.toFixed(15).split("").splice(0, 16).join("");
-      toDisplay(parseFloat(k));
+      toDisplay(result);
       break;
     }
     case "/": {
       if (currentNumber === 0) break;
       result = (result / currentNumber) * 100;
-      let k = result.toFixed(15).split("").splice(0, 16).join("");
-      toDisplay(parseFloat(k));
+      toDisplay(result);
       break;
     }
     case "*": {
-      // if (currentNumber === 0) break;
       result = (result * currentNumber) / 100;
-      let k = result.toFixed(15).split("").splice(0, 16).join("");
-      toDisplay(parseFloat(k));
+      toDisplay(result);
       break;
     }
     case "=": {
@@ -114,8 +116,7 @@ function displayArrString(arrCurrentString) {
 }
 
 function displayResult(result) {
-  let m = result.toFixed(15).split("").splice(0, 16).join("");
-  toDisplay(parseFloat(m));
+  toDisplay(result);
 }
 
 function plus() {
